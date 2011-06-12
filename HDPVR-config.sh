@@ -87,6 +87,7 @@ echo " now checking input..."
 echo -n " Current config: $audioencoding on " && v4l2-ctl --device=$device --get-audio-input
 
 
+
 #If RCA back (0) was chosen and not used, make the change.
 if [ $audioinputnum = 0 ]
 	then 
@@ -136,18 +137,6 @@ if [ $audioinputnum = 2 ]
 		fi
 fi
 
-if [ $audioinputnum = 2 ]
-	then 
-		if [ "$(v4l2-ctl --device=$device --get-audio-input | grep 'RCA' )" = "$in0txt" ] || [ "$(v4l2-ctl --device=$device --get-audio-input | grep 'RCA' )" = "$in1txt" ]	# check to see if any RCA input is being used
-			then
-				echo ""
-				echo " changing audio input..."
-				echo -n " " && v4l2-ctl --device=$device --set-audio-input=$audioinputnum
-				echo -n " New config: $audioencoding on " && v4l2-ctl --device=$device --get-audio-input
-				echo ""
-				exit 1
-		fi
-fi
 
 
 
@@ -161,6 +150,7 @@ if [ $audioinputnum = 3 ] && [ $audioencoding = "ac3" ]
 		echo ""
 		exit 1
 fi
+
 
 
 #If ac3 (4) was chosen and not used, make the change.
