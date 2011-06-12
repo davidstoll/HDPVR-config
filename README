@@ -1,0 +1,22 @@
+June 11, 2011
+
+requires ivtv-utils
+sudo apt-get install ivtv-utils
+
+This is a very simple script that finds your HDPVR device and changes the audio input and/or audio encoding on a Hauppauge HDPVR.
+
+The settings may reset when the unit is unplugged from power, unplugged from USB or even on a reboot.
+
+So, this could be run on startup (with options) or can be run manually.
+
+Options are currently 0-4 and can only be called one at a time.
+
+examples:
+./HDPVR-config		# this will prompt the user for input and shows the current audio configuration
+./HDPVR-config 0	# this sets the unit's default input to RCA (back) (normal unit default)
+./HDPVR-config 1	# this sets the unit's default input to RCA (front)
+./HDPVR-config 2	# this sets the unit's default input to optical/spdif
+./HDPVR-config 3	# this sets the unit's default audio encoding to aac (normal unit default)
+./HDPVR-config 4	# this sets the unit's default audio encoding to ac3
+
+
